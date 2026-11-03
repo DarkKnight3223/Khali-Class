@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Available Classes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Available Classes</h1>
+    <p>See which classrooms are empty right now or at a later time.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label>Day
+        <select id="day">
+          <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+          <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+        </select>
+      </label>
+      <label>Time
+        <input type="time" id="time" />
+      </label>
+      <label class="check">
+        <input type="checkbox" id="acOnly" /> AC working only
+      </label>
+      <button id="nowBtn" type="button">Use current time</button>
+    </section>
+
+    <p id="summary"></p>
+    <section id="results" class="grid"></section>
+  </main>
+
+  <script src="timetable.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
