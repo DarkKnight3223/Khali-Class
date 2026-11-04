@@ -167,3 +167,21 @@ button {
 button:hover {
   filter: brightness(1.1);
 }
+/* Center the page header */
+header,
+.hero {
+  display: block !important;
+  text-align: center !important;
+}
+
+h1 {
+  display: block !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+h1 + p {
+  text-align: center !important;
+}
