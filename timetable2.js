@@ -275,7 +275,7 @@ const ROOMS = [
   },
       {
     name: "Room 301A",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH1351_BIOMEDICAL_1_3080_A"],
@@ -317,7 +317,7 @@ const ROOMS = [
   },
   {
     name: "Room 302A",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH1341_CIVILCA_1_2514_A"],
@@ -354,7 +354,7 @@ const ROOMS = [
   },
   {
     name: "Room 307",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "CHEM1111_CSECS_1_10295_B"],
@@ -383,7 +383,7 @@ const ROOMS = [
   },
   {
     name: "Room 310",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH2572_CSEAIML_1_2542_A"],
@@ -424,7 +424,7 @@ const ROOMS = [
   },
   {
     name: "Room 311",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH2572_CSEAIML_1_503413_B"],
