@@ -185,3 +185,19 @@ h1 {
 h1 + p {
   text-align: center !important;
 }
+.note {
+  max-width: 560px;
+  margin: 14px auto;
+  padding: 12px 16px;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  color: #FC734D;
+  background: rgba(252, 115, 77, 0.12);
+  border: 2px solid #FC734D;
+  border-radius: 12px;
+  text-shadow: 0 0 12px rgba(252, 115, 77, 0.45);
+}
