@@ -2,7 +2,7 @@
 // TIMETABLE DATA — edit this file only.
 // For each classroom:
 //   name     : room name/number
-//   ac       : true if the AC is working, false if not
+//   ac       : true if the AC is working, true if not
 //   schedule : { Day: [ ["start", "end", "Subject / Section"], ... ] }
 // Times use 24-hour "HH:MM" format. Each period is 50 minutes.
 // Rooms with an empty schedule are always shown as free.
@@ -72,7 +72,7 @@ const ROOMS = [
   },
   {
     name: "Room 101A",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["09:00", "09:50", "MATH2572_CSECS_1_4006_A"],
@@ -143,7 +143,7 @@ const ROOMS = [
   },
   {
     name: "Room 206",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["09:00", "09:50", "CHEM1111_BIOTECH_1_502098_A"],
@@ -186,7 +186,7 @@ const ROOMS = [
   },
   {
     name: "Room 207",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "CHEM1111_CSEAIML_1_2311_E"],
@@ -233,7 +233,7 @@ const ROOMS = [
   },
   {
     name: "Room 211",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH1351_BIOTECH_1_2550_A"],
@@ -275,7 +275,7 @@ const ROOMS = [
   },
   {
     name: "Room 402",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "24CSEN1031_CSE_1_501101_A"],
@@ -322,7 +322,7 @@ const ROOMS = [
   },
   {
     name: "Room 405",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["09:00", "09:50", "MATH2572_CSEAIML_1_503413_E"],
@@ -353,7 +353,7 @@ const ROOMS = [
   },
   {
     name: "Room 408",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["10:00", "10:50", "HSMCH102_ECE_1_2050_D"],
@@ -385,7 +385,7 @@ const ROOMS = [
   },
   {
     name: "Room 409",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "24BTEN1001_BIOMEDICAL_1_501936_A"],
@@ -428,7 +428,7 @@ const ROOMS = [
   },
   {
     name: "Room 415",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["10:00", "10:50", "Class (name unclear)"], // blurry photo, time read from the enhanced image
@@ -461,7 +461,7 @@ const ROOMS = [
   },
   {
     name: "Room 301A",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH1351_BIOMEDICAL_1_3080_A"],
@@ -503,7 +503,7 @@ const ROOMS = [
   },
   {
     name: "Room 302A",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH1341_CIVILCA_1_2514_A"],
@@ -540,7 +540,7 @@ const ROOMS = [
   },
   {
     name: "Room 307",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "CHEM1111_CSECS_1_10295_B"],
@@ -569,7 +569,7 @@ const ROOMS = [
   },
   {
     name: "Room 310",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH2572_CSEAIML_1_2542_A"],
@@ -610,7 +610,7 @@ const ROOMS = [
   },
   {
     name: "Room 311",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["08:00", "08:50", "MATH2572_CSEAIML_1_503413_B"],
