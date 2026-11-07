@@ -66,4 +66,31 @@ function render() {
     .map(room => ({ room, status: roomStatus(room, day, minutes) }))
     .filter(x => x.status.free);
 
-  summaryEl.textContent
+  summaryEl.textContent =
+    `${free.length} of ${ROOMS.length} classrooms free on ${day} at ${toLabel(minutes)}`;
+
+  resultsEl.innerHTML = "";
+  if (free.length === 0) {
+    resultsEl.innerHTML = '<p class="empty">No free classrooms match. Try another time.</p>';
+    return;
+  }
+
+  free.forEach(({ room, status }) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    const until = status.until
+      ? `Free until ${toLabel(status.until)}`
+      : "Free for the rest of the day";
+    card.innerHTML = `
+      <h3>${room.name}</h3>
+      <p class="meta">${until}</p>
+      <span class="badge ${room.ac ? "working" : "not_working"}">
+        AC ${room.ac ? "working" : "not working"}
+      </span>`;
+    resultsEl.appendChild(card);
+  });
+}
+
+[dayEl, timeEl].forEach(el => el.addEventListener("input", render));
+nowBtn.addEventListener("click", setNow);
+setNow();
