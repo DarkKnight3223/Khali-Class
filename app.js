@@ -42,7 +42,13 @@ function roomStatus(room, day, minutes) {
   const busy = blocks.some(([s, e]) => minutes >= s && minutes < e);
   if (busy) return { free: false, until: null };
 
-  const next = blocks.find(([s]) => s > minutes);
+   const next = blocks.find(([s]) => s > minutes);
+
+  // Not usable if a class starts in less than MIN_FREE minutes
+  if (next && next[0] - minutes < MIN_FREE) {
+    return { free: false, until: null };
+  }
+
   return { free: true, until: next ? next[0] : null };
 }
 
