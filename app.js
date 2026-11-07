@@ -2,6 +2,7 @@ const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 
 const dayEl = document.getElementById("day");
 const timeEl = document.getElementById("time");
+const acEl = document.getElementById("acOnly");
 const nowBtn = document.getElementById("nowBtn");
 const resultsEl = document.getElementById("results");
 const summaryEl = document.getElementById("summary");
@@ -61,13 +62,15 @@ function setNow() {
 function render() {
   const day = dayEl.value;
   const minutes = toMinutes(timeEl.value || "00:00");
+  const acOnly = acEl.checked;
 
   const free = ROOMS
     .map(room => ({ room, status: roomStatus(room, day, minutes) }))
-    .filter(x => x.status.free);
+    .filter(x => x.status.free && (!acOnly || x.room.ac));
 
   summaryEl.textContent =
-    `${free.length} of ${ROOMS.length} classrooms free on ${day} at ${toLabel(minutes)}`;
+    `${free.length} of ${ROOMS.length} classrooms free on ${day} at ${toLabel(minutes)}` +
+    (acOnly ? " (AC working only)" : "");
 
   resultsEl.innerHTML = "";
   if (free.length === 0) {
@@ -84,13 +87,13 @@ function render() {
     card.innerHTML = `
       <h3>${room.name}</h3>
       <p class="meta">${until}</p>
-      <span class="badge ${room.ac ? "working" : "not_working"}">
+      <span class="badge ${room.ac ? "ac-ok" : "ac-bad"}">
         AC ${room.ac ? "working" : "not working"}
       </span>`;
     resultsEl.appendChild(card);
   });
 }
 
-[dayEl, timeEl].forEach(el => el.addEventListener("input", render));
+[dayEl, timeEl, acEl].forEach(el => el.addEventListener("input", render));
 nowBtn.addEventListener("click", setNow);
 setNow();
