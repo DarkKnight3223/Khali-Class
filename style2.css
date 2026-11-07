@@ -201,3 +201,41 @@ h1 + p {
   border-radius: 12px;
   text-shadow: 0 0 12px rgba(252, 115, 77, 0.45);
 }
+/* Day dropdown themed to match */
+#day option {
+  background-color: var(--black);
+  color: var(--text);
+}
+
+#day option:checked {
+  background: var(--blue) linear-gradient(var(--blue), var(--blue));
+  color: #fff;
+}
+
+/* Newer Chrome/Edge: fully styled dropdown list */
+@supports (appearance: base-select) {
+  #day,
+  #day::picker(select) {
+    appearance: base-select;
+  }
+
+  #day::picker(select) {
+    background: var(--black);
+    border: 1px solid var(--blue);
+    border-radius: 12px;
+    padding: 6px;
+  }
+
+  #day option {
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
+
+  #day option:hover {
+    background: rgba(2, 151, 222, 0.35);
+  }
+
+  #day option:checked {
+    background: var(--blue);
+  }
+}
