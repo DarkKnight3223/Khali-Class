@@ -19,11 +19,27 @@
       <label>Day
         <select id="day">
           <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
-          <option>Thursday</option><option>Friday</option><option>Saturday</option>
-          <option>Sunday</option>
+          <option>Thursday</option><option>Friday</option>
         </select>
       </label>
       <label>Time
         <input type="time" id="time" />
       </label>
+      <label class="check">
+        <input type="checkbox" id="acOnly" /> AC working only
+      </label>
       <button id="nowBtn" type="button">Use current time</button>
+    </section>
+
+    <p id="summary"></p>
+
+    <!-- NEW: faculty notice -->
+    <p class="note">⚠️ Empty rooms may become occupied if a faculty member takes an extra or rescheduled class. Availability can change without notice.</p>
+
+    <section id="results" class="grid"></section>
+  </main>
+
+  <script src="timetable.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
