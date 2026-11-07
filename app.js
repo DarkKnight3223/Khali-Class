@@ -20,17 +20,30 @@ function toLabel(mins) {
   return `${h12}:${m} ${suffix}`;
 }
 
-// Returns { free, until, current } for a room at a given day/time (minutes)
+const MIN_FREE = 15; // gaps shorter than this (in minutes) between classes count as busy
+
+// Returns { free, until } for a room at a given day/time (minutes)
 function roomStatus(room, day, minutes) {
   const slots = (room.schedule[day] || [])
-    .map(([s, e, label]) => ({ start: toMinutes(s), end: toMinutes(e), label }))
-    .sort((a, b) => a.start - b.start);
+    .map(([s, e]) => [toMinutes(s), toMinutes(e)])
+    .sort((a, b) => a[0] - b[0]);
 
-  const current = slots.find(s => minutes >= s.start && minutes < s.end);
-  if (current) return { free: false, current, until: null };
+  // Merge classes separated by less than MIN_FREE minutes into one busy block
+  const blocks = [];
+  for (const [s, e] of slots) {
+    const last = blocks[blocks.length - 1];
+    if (last && s - last[1] < MIN_FREE) {
+      last[1] = Math.max(last[1], e);
+    } else {
+      blocks.push([s, e]);
+    }
+  }
 
-  const next = slots.find(s => s.start > minutes);
-  return { free: true, current: null, until: next ? next.start : null };
+  const busy = blocks.some(([s, e]) => minutes >= s && minutes < e);
+  if (busy) return { free: false, until: null };
+
+  const next = blocks.find(([s]) => s > minutes);
+  return { free: true, until: next ? next[0] : null };
 }
 
 function setNow() {
