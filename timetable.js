@@ -651,6 +651,5 @@ const ROOMS = [
       Saturday: [],
     },
   },
-  // Add the rest of your classrooms here, for example:
-  // { name: "Room 203A", ac: true, schedule: { Monday: [["09:00","09:50","Subject"]] } },
+ 
 ];
