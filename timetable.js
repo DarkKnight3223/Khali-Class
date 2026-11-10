@@ -110,7 +110,7 @@ const ROOMS = [
   },
   {
     name: "Room 102A",
-    ac: false, // TODO: confirm AC status (not known yet)
+    ac: true, // TODO: confirm AC status (not known yet)
     schedule: {
       Monday: [
         ["09:00", "09:50", "MATH2572_CSE_1_2536_I"],
