@@ -151,6 +151,7 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
 @media (min-width: 620px) {
   .list { grid-template-columns: 1fr 1fr; }
 }
+
 /* Style all buttons, including "Use current time" */
 button {
   font: inherit;
@@ -167,6 +168,7 @@ button {
 button:hover {
   filter: brightness(1.1);
 }
+
 /* Center the page header */
 header,
 .hero {
@@ -185,6 +187,8 @@ h1 {
 h1 + p {
   text-align: center !important;
 }
+
+/* Faculty notice */
 .note {
   max-width: 560px;
   margin: 14px auto;
@@ -201,6 +205,7 @@ h1 + p {
   border-radius: 12px;
   text-shadow: 0 0 12px rgba(252, 115, 77, 0.45);
 }
+
 /* Day dropdown themed to match */
 #day option {
   background-color: var(--black);
@@ -238,4 +243,30 @@ h1 + p {
   #day option:checked {
     background: var(--blue);
   }
+}
+
+/* Feedback box */
+.feedback {
+  margin: 14px 0;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.feedback h2 {
+  margin: 0 0 2px;
+  font-size: 16px;
+}
+
+.feedback p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.feedback .btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 8px 14px;
+  background: var(--orange);
 }
