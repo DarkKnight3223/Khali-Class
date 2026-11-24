@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Free Classes</title>
-  <link rel="stylesheet" href="style2.css" />
-
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="264d5cb6-aab5-42fc-bf66-66bf967d1638"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhaliClass – Free Classes in VB</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: #fff;
+      background: linear-gradient(160deg, #02070A 0%, #0297DE 60%, #FC734D 100%);
+      background-attachment: fixed;
+      text-align: center;
+    }
+    .card {
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 28px;
+      border-radius: 20px;
+      background: rgba(2, 7, 10, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+    .brand { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #FC734D; margin-bottom: 8px; }
+    h1 { font-size: 30px; margin-bottom: 24px; }
+    .icon { font-size: 48px; margin-bottom: 16px; }
+    .msg { font-size: 18px; line-height: 1.6; }
+    .date {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #FC734D;
+      color: #02070A;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .sub { margin-top: 18px; font-size: 14px; opacity: 0.8; }
+    footer { margin-top: 24px; font-size: 12px; opacity: 0.65; max-width: 480px; }
+  </style>
 </head>
 <body>
-  <header>
+  <div class="card">
+    <div class="brand">KhaliClass</div>
     <h1>Free Classes in VB</h1>
-    <p>See which classrooms are empty right now or at a later time.</p>
-  </header>
-
-  <main>
-    <section class="controls">
-      <label>Day
-        <select id="day">
-          <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
-          <option>Thursday</option><option>Friday</option>
-        </select>
-      </label>
-      <label>Time
-        <input type="time" id="time" />
-      </label>
-      <label class="check">
-        <input type="checkbox" id="acOnly" /> AC working only
-      </label>
-      <button id="nowBtn" type="button">Use current time</button>
-    </section>
-
-    <section class="feedback glass">
-      <h2>Got feedback?</h2>
-      <p>Wrong timing or AC status? Tell us.</p>
-      <a class="btn" href="https://forms.gle/xB67S8A7SWbm8pf76" target="_blank" rel="noopener">Give feedback</a>
-    </section>
-
-    <p id="summary"></p>
-
-    <!-- NEW: faculty notice -->
-    <p class="note">⚠️ Empty rooms may become occupied if a faculty member takes an extra or rescheduled class. Availability can change without notice.</p>
-
-    <section id="results" class="grid"></section>
-  </main>
-
-  <script src="timetable.js"></script>
-  <script src="app.js"></script>
+    <div class="icon">📅</div>
+    <p class="msg">Semester 1 timetables have ended.<br>We'll be back for Semester 2 with new timetables on</p>
+    <div class="date">10th December</div>
+    <p class="sub">See you then!</p>
+  </div>
+  <footer>Made by students. Not affiliated with GITAM administration.</footer>
 </body>
 </html>
