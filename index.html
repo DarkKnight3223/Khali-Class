@@ -58,6 +58,71 @@
     <div class="date">10th December</div>
     <p class="sub">See you then!</p>
   </div>
-  <footer>Made by student. Not affiliated with GITAM administration.</footer>
+  <footer>Made by students. Not affiliated with GITAM administration.</footer>
+
+<!-- ===== Paartha poster popup ===== -->
+<div id="paartha-popup" role="dialog" aria-modal="true" aria-label="Download Paartha"
+     style="display:none;position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.7);align-items:center;justify-content:center;padding:16px;box-sizing:border-box;opacity:0;transition:opacity .25s ease;">
+  <div style="position:relative;flex:none;width:min(92vw,92vh,640px);height:min(92vw,92vh,640px);">
+    <button id="paartha-popup-close" type="button" aria-label="Close"
+            style="position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;border:0;background:#fff;color:#111;font:700 20px/36px Arial,sans-serif;text-align:center;padding:0;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:2;">&times;</button>
+    <a id="paartha-popup-link" href="https://paartha.theananta.in/#download" target="_blank" rel="noopener"
+       style="display:block;width:100%;height:100%;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.5);line-height:0;">
+      <img id="paartha-popup-img" alt="Paartha - Know what to study next, even the night before the exam. Download now."
+           style="display:block;width:100%;height:100%;object-fit:contain;cursor:pointer;">
+    </a>
+  </div>
+</div>
+
+<script>
+(function () {
+  // ---- Config ----
+  var IMAGE_SRC = "https://pub-289abb1a16f648c982cfeef6252aa000.r2.dev/email-assets/paartha-poster-1200.webp";
+  var IMAGE_SRC_LARGE = "https://pub-289abb1a16f648c982cfeef6252aa000.r2.dev/email-assets/paartha-poster.webp"; // used on high-DPI screens
+  var DELAY_MS = 1500;                        // delay before popup appears
+  var SHOW_ONCE_PER_SESSION = true;           // set false to show on every page load
+  var OPEN_IN_NEW_TAB = true;                 // false = redirect in same tab
+  // ----------------
+
+  var KEY = "paartha_popup_seen";
+  var popup = document.getElementById("paartha-popup");
+  var img = document.getElementById("paartha-popup-img");
+  var link = document.getElementById("paartha-popup-link");
+  var closeBtn = document.getElementById("paartha-popup-close");
+  if (!popup) return;
+
+  try { if (SHOW_ONCE_PER_SESSION && sessionStorage.getItem(KEY)) return; } catch (e) {}
+
+  if (!OPEN_IN_NEW_TAB) { link.removeAttribute("target"); link.removeAttribute("rel"); }
+
+  var prevOverflow = "";
+  function open() {
+    prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    popup.style.display = "flex";
+    requestAnimationFrame(function () { popup.style.opacity = "1"; });
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+  }
+  function close() {
+    popup.style.opacity = "0";
+    setTimeout(function () {
+      popup.style.display = "none";
+      document.body.style.overflow = prevOverflow;
+    }, 250);
+  }
+
+  closeBtn.addEventListener("click", function (e) { e.stopPropagation(); e.preventDefault(); close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+
+  // Clicking the poster follows the link; clicking the dark backdrop closes it.
+  popup.addEventListener("click", function (e) { if (e.target === popup) close(); });
+
+  // Load image first so the popup never shows empty.
+  img.onload = function () { setTimeout(open, DELAY_MS); };
+  img.sizes = "(max-width: 640px) 92vw, 640px";
+  img.srcset = IMAGE_SRC + " 1200w, " + IMAGE_SRC_LARGE + " 4096w";
+  img.src = IMAGE_SRC;
+})();
+</script>
 </body>
 </html>
